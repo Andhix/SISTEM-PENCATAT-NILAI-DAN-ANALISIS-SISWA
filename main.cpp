@@ -8,7 +8,7 @@
 
 /* Pustaka-pustaka yang dibutuhkan */
 #include <iostream>
-
+#include <vector>
 
 using namespace std;
 
@@ -64,11 +64,48 @@ bool Siswa::getStatusSiswa()
 
 int main()
 {
-    Siswa A("Andhika", "08123456", 78);
-    cout << A.getNamaSiswa() << endl;
-    cout << A.getNoIndukSiswa() << endl;
-    cout << A.getNilaiSiswa() << endl;
-    cout << A.getStatusSiswa() << endl;
+    /* Deklarasi variabel */
+    int jmlSiswa;
+    vector<Siswa> daftarSiswa;
+
+    /* Input */
+    cout << "Jumlah Siswa: ";
+    cin >> jmlSiswa;
+
+    cout << endl;
+
+    for(int i = 0; i < jmlSiswa; i++)
+    {
+        string nama, noInduk;
+        double nilai;
+
+        cout << "Data siswa ke-" << i + 1 << ":" << endl;
+        cout << "Nama: ";
+        cin >> nama;
+        cout << "Nomor Induk Siswa: ";
+        cin >> noInduk;
+        cout << "Nilai: ";
+        cin >> nilai;
+
+        Siswa siswaBaru(nama, noInduk, nilai);
+
+        daftarSiswa.push_back(siswaBaru);
+
+        cout << endl;
+    }
+
+    /* Output */
+    for(auto siswa : daftarSiswa){
+        bool status = siswa.getStatusSiswa();
+        string hasil = (status == 1) ? "Lulus" : "Gagal";
+
+        cout << "Nama: " << siswa.getNamaSiswa() << endl;
+        cout << "Nomor Induk: " << siswa.getNoIndukSiswa() << endl;
+        cout << "Nilai: " << siswa.getNilaiSiswa() << endl;
+        cout << "Status: " << hasil << endl;
+
+        cout << endl;
+    }
 
     return 0;
 }
