@@ -15,6 +15,8 @@ using namespace std;
 /* Konstanta */
 const int KKM = 78;
 
+
+/* Mendefinisikan kelas Siswa */
 class Siswa
 {
 private:
@@ -62,6 +64,11 @@ bool Siswa::getStatusSiswa()
 
 int main()
 {
+    Siswa A("Andhika", "08123456", 78);
+    cout << A.getNamaSiswa() << endl;
+    cout << A.getNoIndukSiswa() << endl;
+    cout << A.getNilaiSiswa() << endl;
+    cout << A.getStatusSiswa() << endl;
 
     return 0;
 }
